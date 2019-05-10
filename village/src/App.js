@@ -12,15 +12,18 @@ class App extends Component {
     };
   }
   componentDidMount() {
+    this.fetchSmurfs();
+  }
+  fetchSmurfs = () => {
     axios
       .get("http://localhost:3333/smurfs")
       .then(res => this.setState({ smurfs: res.data }))
       .catch(err => console.log(err));
-  }
+  };
   render() {
     return (
       <div className="App">
-        <SmurfForm />
+        <SmurfForm fetchSmurfs={this.fetchSmurfs} />
         <Smurfs smurfs={this.state.smurfs} />
       </div>
     );
