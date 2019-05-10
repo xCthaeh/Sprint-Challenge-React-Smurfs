@@ -28,7 +28,6 @@ class App extends Component {
     return (
       <div className="App">
         <Route path="/" component={NavBar} />
-        />
         <Route
           path="/smurf-form"
           render={props => (
